@@ -5,7 +5,7 @@ title: "Amanda Basso"
 theme: "hyde"
 
 params:
-  description: "just another crypto, travelling, cats blog"
+  description: "Let's talk about cryptography, physics, psychology, books, and cats"
 
 menus:
   main:
