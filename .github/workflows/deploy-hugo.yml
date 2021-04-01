@@ -27,5 +27,5 @@ jobs:
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: amanda-basso/amanda-basso.github.io
-          publish_branch: master
+          publish_branch: main
           publish_dir: ./public
