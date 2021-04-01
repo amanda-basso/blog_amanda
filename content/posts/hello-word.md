@@ -5,10 +5,10 @@ categories:
 - crypto
 - cats
 date: 2021-03-29T23:42:08-03:00
-draft: true
+draft: false
 ---
 
-Hi everyone!!! This is my first blog post and I'm planning to print some bits of my cryto studies, travells, and share a lot of pics of my cats. Hope you enjoy!
+Hi everyone!!! Kund3r4 This is my first blog post and I'm planning to print some bits of my cryto studies, travells, and share a lot of pics of my cats. Hope you enjoy!
 
 <!--more-->
 
