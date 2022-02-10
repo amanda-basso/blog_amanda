@@ -5,13 +5,13 @@ title: "Amanda Basso"
 theme: "hyde"
 
 params:
-  description: "Let's talk about cryptography, physics, psychology, books, and cats"
+  description: "Let's talk about security, technology, psychology, books, and cats"
 
 menus:
   main:
     - name: "Github"
       URL: "https://github.com/amanda-basso"
     - name: "LinkedIn"
-      URL: "https://www.linkedin.com/in/amanda-basso-de-oliveira-335312182/"
+      URL: "https://www.linkedin.com/in/amanda-basso-de-oliveira/"
     - name: "Lattes"
       URL: "http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K2715239U6"
