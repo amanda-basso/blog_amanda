@@ -1,17 +1,19 @@
 ---
-title: "Identity and Access Management"
-Description: An intro to Identity and Access Management and its importance
+title: "Cloud computing models"
+Description: A brief explanation on cloud computing models
 categories:
-- IAM
-- IT security
-date: 2022-02-02T18:42:08-03:00
-draft: true
+- Cloud computing
+- PaaS
+- IaaS
+- SaaS
+date: 2022-02-09T18:42:08-03:00
+draft: false
 ---
 
-Hi everyone! In this post I present an introduction to Identity and Access Management. Hope you like!
+Hi everyone! In this post I briefly explain about the Cloud computing models. Hope you like!
 <!--more-->
 
-## Identity and Access Management
+## Cloud Computing Models
 
 [Work in Progress]
 
