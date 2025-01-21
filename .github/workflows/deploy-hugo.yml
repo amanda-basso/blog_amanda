@@ -1,31 +1,37 @@
-name: hugo CI
+name: Deploy Hugo Blog to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main ] # Dispara o workflow quando houver alterações na branch main
+  workflow_dispatch: # Permite execução manual do workflow
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest # Atualizado para a versão mais recente do runner
 
     steps:
-      - uses: actions/checkout@v2
+      # 1. Checkout do código
+      - name: Checkout source code
+        uses: actions/checkout@v4
         with:
-          submodules: true 
-          fetch-depth: 1   
+          submodules: true # Inclui submódulos (se aplicável)
+          fetch-depth: 1 # Clona apenas o commit mais recente
 
+      # 2. Setup Hugo (com versão estável especificada)
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.115.1' # Substitua pela versão que você precisa
 
+      # 3. Build do site com Hugo
       - name: Build
-        run: hugo
+        run: hugo --minify # Gera o site com otimização de arquivos
 
-      - name: Deploy
+      # 4. Deploy para o GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          external_repository: amanda-basso/amanda-basso.github.io
-          publish_branch: main
-          publish_dir: ./public
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Usando o token padrão do GitHub
+          external_repository: amanda-basso/amanda-basso.github.io # Repositório de deploy
+          publish_branch: gh-pages # Branch usada pelo GitHub Pages
+          publish_dir: ./public # Diretório gerado pelo Hugo
