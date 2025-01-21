@@ -1,0 +1,32 @@
+name: Deploy Hugo Blog to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ] # Executa quando há mudanças na branch main
+  workflow_dispatch: # Permite execução manual do workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz o checkout do repositório
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # Instala o Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest" # Pode substituir "latest" por uma versão específica, como "0.115.0"
+
+      # Gera o site usando Hugo
+      - name: Build the site
+        run: hugo --minify # Inclui otimização dos arquivos gerados
+
+      # Publica o conteúdo gerado no GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public # Diretório padrão de saída do Hugo
