@@ -32,6 +32,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Usando o token padrão do GitHub
-          external_repository: amanda-basso/amanda-basso.github.io # Repositório de deploy
+          #external_repository: amanda-basso/amanda-basso.github.io # Repositório de deploy
           publish_branch: gh-pages # Branch usada pelo GitHub Pages
           publish_dir: ./public # Diretório gerado pelo Hugo
