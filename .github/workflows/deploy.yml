@@ -1,36 +1,33 @@
-name: Deploy Hugo Blog to GitHub Pages
+# Created by MichaelCurrin
+# https://gist.github.com/MichaelCurrin/a698731096f78240f653faf9a9127cba
+
+name: Build and deploy 
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout do código
-      - name: Checkout source code
-        uses: actions/checkout@v4
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
         with:
-          submodules: true
-          fetch-depth: 1
+          persist-credentials: false
+          
+      - name: Install 🔧
+        run: yarn install
 
-      # 2. Setup Hugo
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.115.1'
+      - name: Build 🏗️
+        run: |
+          yarn clean
+          yarn build
 
-      # 3. Build do site
-      - name: Build
-        run: hugo --minify
-
-      # 4. Deploy para GitHub Pages
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GH Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages # Substitua se estiver usando outra branch
-          publish_dir: ./public
+          publish_dir: public
